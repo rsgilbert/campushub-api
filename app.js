@@ -7,6 +7,9 @@ const cors = require('cors')
 
 const app = express()
 
+// serve static
+app.use(express.static('uploads'))
+
 app.use(cors())
 app.use(morgan('short'))
 app.use(compression())
