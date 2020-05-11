@@ -17,16 +17,19 @@ router.post('/items', async (req, res) => {
     return res.json(item)
 })
 
-router.put('/items/:id', async (req, res) => {
-    const _id = req.params.id
-    const update = req.body
+router.put('/items/:_id', async (req, res) => {
+    const _id = req.params._id
+    const name = req.body.name
+    const price = parseInt(req.body.price)
+    const update = { name, price }
+    // console.log(update)
     const doc = await Item.findByIdAndUpdate(_id, update, { new: true })
     // console.log(doc)
     return res.json(doc)
 })
 
-router.delete('/items/:id', async (req, res) => {
-    const item = await Item.findByIdAndDelete(req.params.id)
+router.delete('/items/:_id', async (req, res) => {
+    const item = await Item.findByIdAndDelete(req.params._id)
     console.log(item)
     return res.json(item)
 })
