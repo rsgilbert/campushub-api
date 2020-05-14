@@ -1,4 +1,8 @@
 // heroku setup
 
+heroku stack:set container
 heroku create bigmotherhen
 heroku addons:create mongolab:sandbox
+
+// link
+https://campushub-api.herokuapp.com/
