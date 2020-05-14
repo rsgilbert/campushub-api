@@ -5,7 +5,7 @@ const Item = require('../models/item')
 
 router.get('/items', async (req, res) => {
     const items = await Item.find({})
-    // console.log(items)
+    console.log(items)
     return res.json(items)
 })
 
@@ -22,9 +22,17 @@ router.put('/items/:_id', async (req, res) => {
     const name = req.body.name
     const price = parseInt(req.body.price)
     const update = { name, price }
-    // console.log(update)
+    console.log(update)
     const doc = await Item.findByIdAndUpdate(_id, update, { new: true })
-    // console.log(doc)
+    console.log(doc)
+    return res.json(doc)
+})
+
+router.put('/items/:_id/displayPicture', async (req, res) => {
+    const _id = req.params._id
+    const displayPicture = req.body.displayPicture
+    const doc = await Item.findByIdAndUpdate(_id, { displayPicture }, { new: true })
+    console.log(doc)
     return res.json(doc)
 })
 

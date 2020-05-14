@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const User = require('../models/user')
 
-const { status } = require('./utils')
+const { status, signedToken } = require('./utils')
 
 /**
  * Signing in a user.
@@ -14,16 +14,13 @@ router.post('/login', async (req, res) => {
     let user = await User.findOne({ email })
     if(user) {
         user.checkPassword(password, (err, isMatch) => {
-            if(err) {
-                return res.status(status.SERVER_ERROR).end()
-            }
             if(isMatch) {
+                console.log(user)
                 return res.json(user)
             } 
-            return res.status(status.UNAUTHORIZED).end()
         })
     } 
-    else return res.status(status.NOT_FOUND).end()
+    else return res.json({})
 })
 
 module.exports = router

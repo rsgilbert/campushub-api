@@ -1,1 +1,4 @@
-mlab db: heroku_jj64lsgx
+// heroku setup
+
+heroku create bigmotherhen
+heroku addons:create mongolab:sandbox

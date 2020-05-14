@@ -1,6 +1,6 @@
 const express = require('express')
 const router = express.Router()
-const signup = require('./signup')
+const register = require('./register')
 const login = require('./login')
 const fs = require('fs')
 const path = require('path')
@@ -13,12 +13,12 @@ router.get('/test', (_, res) => {
     return res.json("Test Successful")
 })
 
-router.use(signup)
+router.use(register)
 router.use(login)
 router.use(item)
 router.use(order)
 router.use(picture)
-
+router.use(login)
 
 module.exports = router
 

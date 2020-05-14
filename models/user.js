@@ -7,8 +7,7 @@ const userSchema = mongoose.Schema({
     hashedPassword: { type: String, required: true },
     updatedAt: { type: Date, default: Date.now },
     name: String,
-    phone: String,
-    admin: { type: Boolean, default: false },
+    phone: String
 })
 
 userSchema.methods.checkPassword = function(guess, done) {
