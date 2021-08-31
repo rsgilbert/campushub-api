@@ -4,5 +4,8 @@ heroku stack:set container
 heroku create bigmotherhen
 heroku addons:create mongolab:sandbox
 
+heroku config:set AWS_SECRET_ACCESS_KEY=**
+heroku config:set AWS_SECRET_ACCESS_KEY=**
+heroku config:set S3_BUCKET_NAME=**
 // link
 https://campushub-api.herokuapp.com/
